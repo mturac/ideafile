@@ -1,0 +1,28 @@
+<html><style>body{margin:0;background:#1e1e2e;font:15px/1.45 "DejaVu Sans Mono",monospace;color:#cdd6f4}
+.bar{background:#313244;padding:8px 14px;color:#a6adc8}.bar b{display:inline-block;width:12px;height:12px;border-radius:6px;margin-right:6px}
+pre{margin:0;padding:16px 20px;white-space:pre-wrap}.p{color:#89b4fa}.g{color:#a6e3a1;font-weight:bold}.r{color:#f38ba8;font-weight:bold}.y{color:#f9e2af}.d{color:#6c7086}</style>
+<body><div class=bar><b style=background:#f38ba8></b><b style=background:#f9e2af></b><b style=background:#a6e3a1></b> ideafile — lint pass → to-prompt → lint fail</div><pre><span class=p>$</span> python -m ideafile lint examples/llm-wiki.md
+examples/llm-wiki.md: <span class=g>ok</span>
+<span class=d>[exit 0]</span>
+<span class=p>$</span> python -m ideafile to-prompt examples/llm-wiki.md
+You are building software from an idea file. Build a custom implementation that satisfies the goal and every acceptance criterion.
+
+## Goal
+A personal wiki that an LLM agent keeps up to date from my notes folder
+
+## Constraints
+- Plain markdown files on disk, no database
+- Works with any LLM CLI agent
+- Never deletes user-written notes
+
+## Non-goals
+- A web UI
+
+## Tools available
+... (14 more lines)
+<span class=d>[exit 0]</span>
+<span class=p>$</span> python -m ideafile lint examples/invalid-missing-acceptance.md
+examples/invalid-missing-acceptance.md: <span class=y>warning:</span> constraints is empty; agents will make their own trade-offs
+examples/invalid-missing-acceptance.md: <span class=r>error:</span> missing required field: acceptance (need at least one checkable item)
+<span class=d>[exit 1]</span>
+</pre></body></html>

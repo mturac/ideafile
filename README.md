@@ -1,10 +1,21 @@
 # ideafile
 
+![ideafile terminal story: lint pass, to-prompt, lint fail](docs/terminal-story.png)
+
 A spec format plus a linter and prompt renderer for "idea files": share the **idea** (goal, constraints, acceptance criteria) so a coding agent can build a version that fits you, instead of passing around one-size-fits-all code.
 
 Inspired by Andrej Karpathy's idea-file gist: https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f
 
 Python 3.12+, standard library only, no dependencies.
+
+
+## See it
+
+Real output (`docs/terminal-story.png`, source `docs/terminal-story.html`):
+
+1. `python -m ideafile lint examples/llm-wiki.md` → `ok`, exit 0
+2. `python -m ideafile to-prompt examples/llm-wiki.md` → agent-ready prompt (goal, constraints, acceptance…)
+3. `python -m ideafile lint examples/invalid-missing-acceptance.md` → `error: missing required field: acceptance`, exit 1
 
 ## Format
 
